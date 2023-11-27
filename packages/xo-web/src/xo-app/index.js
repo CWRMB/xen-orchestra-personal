@@ -250,7 +250,7 @@ export default class XoApp extends Component {
     const previousDisclaimer = cookies.get('previousDisclaimer')
     const now = Math.floor(Date.now() / 1e3)
     const oneWeekAgo = now - 7 * 24 * 3600
-    if (!previousDisclaimer || previousDisclaimer < oneWeekAgo) {
+    if (false) {
       alert(
         _('disclaimerTitle'),
         <div>
@@ -363,27 +363,6 @@ export default class XoApp extends Component {
                     {_('notRegisteredDisclaimerCreateAccount')}
                   </a>{' '}
                   <Link to='/xoa/update'>{_('notRegisteredDisclaimerRegister')}</Link>
-                </div>
-              )}
-              {plan === 'Community' && !this.state.dismissedSourceBanner && (
-                <div className='alert alert-danger mb-0'>
-                  <a
-                    href='https://xen-orchestra.com/#!/xoa?pk_campaign=xo_source_banner'
-                    rel='noopener noreferrer'
-                    target='_blank'
-                  >
-                    {_('disclaimerText3')}
-                  </a>{' '}
-                  <a
-                    href='https://xen-orchestra.com/docs/installation.html#banner-and-warnings'
-                    rel='noopener noreferrer'
-                    target='_blank'
-                  >
-                    {_('disclaimerText4')}
-                  </a>
-                  <button className='close' onClick={this.dismissSourceBanner}>
-                    &times;
-                  </button>
                 </div>
               )}
               {isTrialRunning(trial.trial) && !this.state.dismissedTrialBanner && (
